@@ -104,7 +104,20 @@ public class Listas implements IListas{
 		}
 		
 	}
+	public int eliminarPrimero() {
+		if (!estaVacia()) {
+			///Lista --> |11| --> |22| --> |33| --> null
+			int datoAEliminar = this.primero.getDato(); //--> 11
+			this.primero = primero.getSiguiente();// 22 es el nuevo primero
+			this.primero.setAnterior(null);
+			return datoAEliminar;
+		}else {
+			System.out.println("No puedo eliminar el primer elemento ya que no hay");
+			return -1;
+		}
+	}
 	
+	////---METODOS A MODIFICAR----////
 	public int obtenerGenerico(int pos) {//MODIFICAR PARA LISTA DOBLE
 		//pos = 2
 		//Lista --> |11| --> |22| --> |33| --> null
@@ -123,19 +136,7 @@ public class Listas implements IListas{
 		}
 		
 	}
-	
-	public int eliminarPrimero() {//MODIFICAR PARA LISTA DOBLE
-		if (!estaVacia()) {
-			///Lista --> |11| --> |22| --> |33| --> null
-			int datoAEliminar = this.primero.getDato();
-			this.primero = primero.getSiguiente();
-			return datoAEliminar;
-		}else {
-			System.out.println("No puedo eliminar el primer elemento ya que no hay");
-			return -1;
-		}
-	}
-	
+
 	public int busquedaSecuencial(int d) {//MODIFICAR PARA LISTA DOBLE
 		///Lista --> |11| --> |22| --> |33| --> |44| --> null; buscamos el 44, el return debe ser un 3, la pos.
 		if (!estaVacia()) {
