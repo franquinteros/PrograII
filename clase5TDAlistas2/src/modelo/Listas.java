@@ -105,6 +105,21 @@ public class Listas implements IListas{
 		
 	}
 	
+	public int eliminarPrimero() {
+		if (!estaVacia()) {
+			///Lista --> |11| --> |22| --> |33| --> null
+			int datoAEliminar = this.primero.getDato(); //--> 11
+			this.primero = primero.getSiguiente();// 22 es el nuevo primero
+			this.primero.setAnterior(null);
+			return datoAEliminar;
+		}else {
+			System.out.println("No puedo eliminar el primer elemento ya que no hay");
+			return -1;
+		}
+	}
+	
+	///-----MODIFICAR LOS SIGUIENTES METODOS----///
+	
 	public int obtenerGenerico(int pos) {//MODIFICAR PARA LISTA DOBLE
 		//pos = 2
 		//Lista --> |11| --> |22| --> |33| --> null
@@ -122,18 +137,6 @@ public class Listas implements IListas{
 			return -1;
 		}
 		
-	}
-	
-	public int eliminarPrimero() {//MODIFICAR PARA LISTA DOBLE
-		if (!estaVacia()) {
-			///Lista --> |11| --> |22| --> |33| --> null
-			int datoAEliminar = this.primero.getDato();
-			this.primero = primero.getSiguiente();
-			return datoAEliminar;
-		}else {
-			System.out.println("No puedo eliminar el primer elemento ya que no hay");
-			return -1;
-		}
 	}
 	
 	public int busquedaSecuencial(int d) {//MODIFICAR PARA LISTA DOBLE
@@ -258,12 +261,5 @@ public class Listas implements IListas{
 		return primero == null;
 	}
 
-	@Override
-	public String toString() {
-		return "Listas [primero=" + primero + "]";
-	}
-
-	
-	
 	
 }

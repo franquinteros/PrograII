@@ -18,7 +18,10 @@ public class TestAgregarNodo {
 		lista.imprimirAdelante();
 		lista.imprimirAtras();
 		System.out.println(lista.cantElementos());
-		System.out.println(lista);
+		System.out.println(lista.eliminarPrimero());
+		lista.imprimirAdelante();
+		lista.imprimirAtras();
+
 	}
 
 }
