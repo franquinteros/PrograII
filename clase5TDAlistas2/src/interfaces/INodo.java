@@ -1,0 +1,17 @@
+package interfaces;
+
+import modelo.Nodo;
+
+public interface INodo {
+	
+	public String toString();
+	//getter & setter
+	public int getDato();
+	public void setDato(int dato);
+	public INodo getSiguiente();
+	public void setSiguiente(INodo siguiente);
+	public INodo getAnterior();
+
+	public void setAnterior(INodo anterior);
+	
+}
