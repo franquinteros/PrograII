@@ -1,0 +1,16 @@
+package modelo;
+import interfaces.ISensor;
+
+ public abstract class Sensor implements ISensor{
+	 private String identificador;
+	 private String ubicacion;
+	 
+	 @Override
+	public abstract String mostrarDatos() {
+		 return null;
+	 }
+	 @Override
+	 public abstract String leer() {
+		 return null;
+	 }
+}

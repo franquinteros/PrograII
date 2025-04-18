@@ -1,0 +1,28 @@
+package modelo;
+
+public class Perro extends Animal{
+
+	private String raza;
+	
+	public Perro(String nombre, int edad, double peso, String raza) {
+		super(nombre, edad, peso);
+		// TODO Auto-generated constructor stub
+		this.raza = raza;
+	}
+	
+
+	@Override
+	public String mostrarFicha() {
+		// TODO Auto-generated method stub
+		return ;
+	}
+
+	@Override
+	public String hacerSonido() {
+		// TODO Auto-generated method stub
+		return "Guau";
+	}
+
+
+
+}

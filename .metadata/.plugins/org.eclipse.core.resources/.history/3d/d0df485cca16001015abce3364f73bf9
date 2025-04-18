@@ -1,0 +1,14 @@
+package test;
+import interfaces.IAnimal;
+import modelo.Animal;
+public class TestAnimalHacerSonido {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		IAnimal animal1 = new Animal("Ana", 1, 2);
+		animal1.mostrarFicha();
+		System.out.println(animal1);
+	}
+
+}

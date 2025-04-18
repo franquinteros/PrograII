@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="modulo.Martillo"/>
+    <fullyQualifiedTypeName name="modulo.Persona"/>
+    <fullyQualifiedTypeName name="interfaces.IAuto"/>
+    <fullyQualifiedTypeName name="interfaces.IPersona"/>
+    <fullyQualifiedTypeName name="interfaces.IVehiculo"/>
+    <fullyQualifiedTypeName name="modelo.Persona"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="interfaces.IJugador"/>
+    <fullyQualifiedTypeName name="modelo.Equipo"/>
+    <fullyQualifiedTypeName name="modelo.Jugador"/>
+    <fullyQualifiedTypeName name="modelo.Cola"/>
+    <fullyQualifiedTypeName name="modelo.colaDinamica"/>
+    <fullyQualifiedTypeName name="modelo.Empleado"/>
+    <fullyQualifiedTypeName name="modelo.Vehiculo"/>
+    <fullyQualifiedTypeName name="interfaces.INodo"/>
+    <fullyQualifiedTypeName name="interfaces.IListas"/>
+    <fullyQualifiedTypeName name="modelo.Listas"/>
+    <fullyQualifiedTypeName name="modelo.Animal"/>
+    <fullyQualifiedTypeName name="interfaces.IAnimal"/>
+    <fullyQualifiedTypeName name="modelo.Perro"/>
+    <fullyQualifiedTypeName name="modelo.Ave"/>
+    <fullyQualifiedTypeName name="modelo.Gato"/>
+    <fullyQualifiedTypeName name="interfaces.IPerro"/>
+    <fullyQualifiedTypeName name="interfaces.IPluviometro"/>
+    <fullyQualifiedTypeName name="interfaces.ITermometro"/>
+    <fullyQualifiedTypeName name="modelo.Anemometro"/>
+    <fullyQualifiedTypeName name="modelo.Pluviometro"/>
+    <fullyQualifiedTypeName name="modelo.Termometro"/>
+    <fullyQualifiedTypeName name="interfaces.ISensor"/>
+    <fullyQualifiedTypeName name="interfaces.IAnemometro"/>
+</qualifiedTypeNameHistroy>

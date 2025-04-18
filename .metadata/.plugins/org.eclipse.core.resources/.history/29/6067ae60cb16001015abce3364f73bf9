@@ -1,0 +1,10 @@
+package modelo;
+import interfaces.IAnimal;
+public class Perro extends Animal implements IAnimal{
+
+	public Perro(String nombre, int edad, double peso) {
+		super(nombre, edad, peso);
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,11 @@
+package modelo;
+import interfaces.IPerro;
+public class Perro implements IPerro{
+
+	public Perro(String nombre, int edad, double peso) {
+		super(nombre, edad, peso);
+		// TODO Auto-generated constructor stub
+	}
+	
+
+}

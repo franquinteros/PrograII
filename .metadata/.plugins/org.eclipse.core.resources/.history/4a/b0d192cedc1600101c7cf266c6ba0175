@@ -1,0 +1,6 @@
+package modelo;
+import interfaces.ISensor;
+
+ abstract class Sensor implements ISensor{
+
+}

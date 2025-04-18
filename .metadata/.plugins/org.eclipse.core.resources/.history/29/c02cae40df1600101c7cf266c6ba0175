@@ -1,0 +1,20 @@
+package modelo;
+
+public class Termometro extends Sensor {
+
+	
+	@Override
+	public String mostrarDatos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String leer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+}

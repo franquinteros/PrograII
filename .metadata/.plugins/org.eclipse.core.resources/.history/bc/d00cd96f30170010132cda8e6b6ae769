@@ -1,0 +1,40 @@
+package test;
+import interfaces.IAnemometro;
+import interfaces.IPluviometro;
+import interfaces.ISensor;
+import interfaces.ITermometro;
+import modelo.Anemometro;
+import modelo.Pluviometro;
+import modelo.Sensor;
+import modelo.Termometro;
+
+public class TestInicial {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ISensor[] sensores = new ISensor[5];
+		
+		ITermometro termometro1 = new Termometro("876456", "Argentina");
+		System.out.println("Termometro 1 (antes de array): " + termometro1.getIdentificador() + ", " + termometro1.getUbicacion());
+		ITermometro termometro2 = new Termometro("987600", "Brazil");
+		IAnemometro anemometro1 = new Anemometro("098578", "Chile");
+		IPluviometro pluviometro1 = new Pluviometro("15432", "Brazil");
+		IPluviometro pluviometro2 = new Pluviometro("765437", "Uruguay");
+		
+		////---METODOS PROPIOS CLASES-----////
+		System.out.println(termometro1.mostrarDatos());
+		
+
+		sensores[0] = termometro1;
+		sensores[1] = anemometro1;
+		sensores[2] = pluviometro1;
+		sensores[3] = termometro2;
+		sensores[4] = pluviometro2;
+		System.out.println("Contenido del arreglo de sensores: ");
+		for (ISensor sensor : sensores) {
+		    System.out.println("Tipo de sensor: " + sensor.getClass().getName());
+		    System.out.println(sensor.mostrarDatos() + " -- " + sensor.leer(22.5));
+		}
+	}
+
+}

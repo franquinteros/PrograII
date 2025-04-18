@@ -1,0 +1,28 @@
+package modelo;
+
+import interfaces.ITermometro;
+
+public class Termometro extends Sensor implements ITermometro {
+
+	private String identificador;
+	private  String ubicacion;
+	
+	public Termometro(String identificador, String ubicacion) {
+		super(identificador, ubicacion);
+	}
+
+	@Override
+	public String mostrarDatos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String leer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+}

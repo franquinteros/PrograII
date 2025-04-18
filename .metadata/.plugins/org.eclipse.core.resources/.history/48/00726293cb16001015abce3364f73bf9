@@ -1,0 +1,53 @@
+package modelo;
+import interfaces.IPerro;
+public class Perro extends Animal{
+
+	public Perro(String nombre, int edad, double peso) {
+		super(nombre, edad, peso);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String mostrarFicha() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String hacerSonido() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getNombre() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setNombre(String nombre) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getEdad() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getPeso() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setPeso(float peso) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

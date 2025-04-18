@@ -1,0 +1,35 @@
+package modelo;
+
+ public abstract class Sensor{
+	 protected String identificador;
+	 protected String ubicacion;
+
+
+	public Sensor(String identificador, String ubicacion) {
+		super();
+		this.identificador = identificador;
+		this.ubicacion = ubicacion;
+	}
+
+	public abstract String mostrarDatos();
+	public abstract  String leer(double d);
+
+	///GETTER & SETTER------////
+	public String getIdentificador() {
+		return identificador;
+	}
+
+	public void setIdentificador(String identificador) {
+		this.identificador = identificador;
+	}
+
+	public String getUbicacion() {
+		return ubicacion;
+	}
+
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
+	}
+	
+	
+}

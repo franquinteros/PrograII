@@ -1,0 +1,12 @@
+package interfaces;
+
+public interface ISensor {
+	
+	public abstract String mostrarDatos();
+	public abstract String leer(double d);
+	
+	public String getIdentificador();
+	public void setIdentificador(String identificador);
+	public String getUbicacion();
+	public void setUbicacion(String ubicacion);
+}

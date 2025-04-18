@@ -1,0 +1,7 @@
+package interfaces;
+
+public interface ISensor {
+	
+	public abstract String mostrarDatos();
+	public abstract String leer(float f);
+}

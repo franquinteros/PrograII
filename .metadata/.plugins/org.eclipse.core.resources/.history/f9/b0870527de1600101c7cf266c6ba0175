@@ -1,0 +1,25 @@
+package modelo;
+import interfaces.ITermometro;
+public class Termometro extends Sensor implements ITermometro{
+
+	
+
+	public Termometro() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String mostrarDatos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String leer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

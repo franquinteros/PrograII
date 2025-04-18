@@ -1,0 +1,11 @@
+package modelo;
+import interfaces.IAnimal;
+public class Animal implements IAnimal{
+
+	private String nombre;
+	private int edad;
+	private float peso;
+	
+
+	
+}

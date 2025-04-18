@@ -1,0 +1,16 @@
+package interfaces;
+
+public interface IAnimal {
+
+	public String mostrarFicha();
+	public String hacerSonido();
+	public String toString();
+
+	public String getNombre();
+	public void setNombre(String nombre);
+	public int getEdad();
+
+	public float getPeso();
+
+	public void setPeso(float peso);
+}

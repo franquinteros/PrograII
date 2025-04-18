@@ -1,0 +1,17 @@
+package modelo;
+import interfaces.IPluviometro;
+public class Pluviometro extends Sensor implements IPluviometro{
+
+	@Override
+	public String mostrarDatos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String leer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

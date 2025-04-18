@@ -9,29 +9,30 @@ public interface IListas {
 	public String toString();
 	
 	///-----PRIMITIVAS------///
-	///agregar métodos, ya q se puede agregar en cualquier pos de la lista
+	
+	///agregar elementos. LISTO
 	public void agregarUltimo(int d);//como el encolar
 	public void agregarPrimero(int d);
 	public void agregarGenerico(int d, int pos);
 	
-	///eliminar (retornar un nodo o int)
-	public void eliminar(int pos);
+	///eliminar LISTO
+	public void eliminarGenerico(int pos);
 	public int eliminarUltimo();//sin pos ya q se sabe la pos del elemento a eliminar
 	public int eliminarPrimero();
 	
-	///obtenerElemento (retornar un nodo o int)
+	///obtenerElemento
 	public int obtenerPrimero();//sin pos ya q se sabe la pos del elemento a obtener
 	public int obtenerUltimo();
 	public int obtenerGenerico(int pos);
 	
 	///--------EXTRAS----------///
-	public boolean estaVacia();
-	public int cantElementos();
-	public void mostrarLista();
+	public boolean estaVacia(); //LISTO
+	public int cantElementos(); //LISTO
 
 	public int busquedaSecuencial(int i);
 
-	public void imprimirAtras();
-	public void imprimirAdelante();
+	public void imprimirAtras(); //LISTO
+	public void imprimirAdelante(); //LISTO
+	
 
 }

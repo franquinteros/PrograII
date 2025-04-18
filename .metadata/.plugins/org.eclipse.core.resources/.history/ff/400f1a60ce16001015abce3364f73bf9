@@ -1,0 +1,15 @@
+package modelo;
+
+public class Gato extends Animal{
+
+	private boolean esDeInterior; 
+	
+	public Gato(String nombre, int edad, double peso, boolean esDeInterior) {
+		super(nombre, edad, peso);
+		// TODO Auto-generated constructor stub
+		this.esDeInterior = esDeInterior;
+	}
+
+
+	
+}

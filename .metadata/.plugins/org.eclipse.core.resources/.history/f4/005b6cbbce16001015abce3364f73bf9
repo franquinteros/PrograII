@@ -1,0 +1,17 @@
+package test;
+import interfaces.IAnimal;
+import modelo.Perro;
+import modelo.Ave;
+import modelo.Gato;
+public class testAnimal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		IAnimal perro1 = new Perro("Lola", 10, 4, "Labrador");
+		IAnimal ave1 = new Ave("Lola", 10, 4, false);
+		IAnimal gato1 = new Gato("Lola", 10, 4, true);
+		System.out.println(perro1.mostrarFicha());
+	}
+
+}

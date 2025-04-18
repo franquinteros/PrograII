@@ -1,0 +1,5 @@
+package modelo;
+import interfaces.ITermometro;
+public class Termometro extends Sensor implements ITermometro{
+
+}

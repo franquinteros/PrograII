@@ -1,0 +1,14 @@
+package interfaces;
+
+public interface IPerro{
+	
+	public String mostrarFicha();
+	public String hacerSonido();
+	
+	public String toString();
+	public String getNombre();
+	public void setNombre(String nombre);
+	public int getEdad();
+	public double getPeso();
+	public void setPeso(float peso);
+}

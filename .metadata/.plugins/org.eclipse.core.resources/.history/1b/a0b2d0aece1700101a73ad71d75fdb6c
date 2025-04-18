@@ -1,0 +1,20 @@
+package test;
+
+import interfaces.IListas;
+import modelo.Listas;
+
+public class TestAgregarNodo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		IListas lista = new Listas();
+		lista.agregarPrimero(44);
+		//System.out.println(lista);
+		lista.agregarPrimero(33);
+		//System.out.println(lista);
+		lista.agregarPrimero(22);
+		lista.imprimirAdelante();
+		//lista.imprimirAtras();
+	}
+
+}

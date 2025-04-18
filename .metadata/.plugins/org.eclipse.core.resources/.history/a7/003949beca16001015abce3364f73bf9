@@ -1,0 +1,55 @@
+package modelo;
+import interfaces.IAnimal;
+public class Animal implements IAnimal{
+
+	private String nombre;
+	private int edad;
+	private double peso;
+
+	public Animal(String nombre, int edad, double peso) {
+		super();
+		this.nombre = nombre;
+		this.edad = edad;
+		this.peso = peso;
+	}
+	
+	@Override
+	public String mostrarFicha() {
+		// TODO Auto-generated method stub
+		return (this.nombre + ", " + this.edad + ", " + this.peso);
+	}
+	@Override
+	public String hacerSonido() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String toString() {
+		return "Animal [nombre=" + nombre + ", edad=" + edad + ", peso=" + peso + "]";
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public int getEdad() {
+		return edad;
+	}
+
+
+	public double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(float peso) {
+		this.peso = peso;
+	}
+	
+	
+	
+}

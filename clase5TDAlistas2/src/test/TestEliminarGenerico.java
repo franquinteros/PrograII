@@ -1,0 +1,23 @@
+package test;
+
+import interfaces.IListas;
+import modelo.Listas;
+
+public class TestEliminarGenerico {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		IListas lista = new Listas();
+		lista.agregarPrimero(44);
+		lista.agregarPrimero(33);
+		lista.agregarGenerico(55, 1);
+		lista.imprimirAdelante();
+		lista.imprimirAtras();
+		lista.eliminarGenerico(1);
+		lista.imprimirAdelante();
+		lista.imprimirAtras();
+		
+	}
+
+}

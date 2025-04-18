@@ -1,0 +1,17 @@
+package test;
+
+import interfaces.IListas;
+import modelo.Listas;
+
+public class TestAgregarUltimo2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		IListas lista = new Listas();
+
+		lista.agregarUltimo2(55);
+		lista.imprimirAdelante();
+		lista.imprimirAtras2();
+	}
+
+}

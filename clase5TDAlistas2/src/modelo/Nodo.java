@@ -41,6 +41,7 @@ public class Nodo implements INodo{
 			this.anterior = anterior;
 		}
 
+
 		@Override
 		public String toString() {
 			return "Nodo [dato=" + dato + ", siguiente=" + siguiente + ", anterior=" + anterior + "]";

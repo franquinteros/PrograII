@@ -1,0 +1,31 @@
+package modelo;
+
+public class Gato extends Animal{
+
+	private boolean esDeInterior; 
+	public Gato(String nombre, int edad, double peso, boolean esDeInterior) {
+		super(nombre, edad, peso);
+		// TODO Auto-generated constructor stub
+		this.esDeInterior = esDeInterior;
+	}
+
+	@Override
+	public String mostrarFicha() {
+		// TODO Auto-generated method stub
+		return super.mostrarFicha();
+	}
+
+	@Override
+	public String hacerSonido() {
+		// TODO Auto-generated method stub
+		return "Miau";
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+
+	
+}

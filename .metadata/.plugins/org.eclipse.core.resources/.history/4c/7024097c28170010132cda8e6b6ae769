@@ -1,0 +1,29 @@
+package modelo;
+import interfaces.IAnemometro;
+public class Anemometro extends Sensor implements IAnemometro{
+
+	public Anemometro(String identificador, String ubicacion) {
+		super(identificador, ubicacion);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String mostrarDatos() {
+		// TODO Auto-generated method stub
+		return toString();
+	}
+
+
+	@Override
+	public String leer(float dato) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String toString() {
+		return "Anemometro [identificador=" + identificador + ", ubicacion=" + ubicacion + "]";
+	}
+
+	
+}

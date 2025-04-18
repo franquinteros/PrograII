@@ -1,0 +1,7 @@
+package interfaces;
+
+public interface IAnemometro extends ISensor{
+
+	String getIdentificador();
+
+}

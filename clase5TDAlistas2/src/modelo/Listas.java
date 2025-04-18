@@ -3,63 +3,156 @@ import interfaces.INodo;
 import interfaces.IListas;
 
 public class Listas implements IListas{
-	//LISTAS --> generalización del array, sólo que no tiene un tamaño fijo. Colección de nodos
-			// (dato: 1) (3) (44) (12) -> null
-			// (siguiente ->)
-			//interesa sólo el primer elemento ya que a partir de él se accede al resto de los nodos siguientes.
-			//lista vacía --> primer nodo = null
-			//insertar y eliminar nodos en cualquier pos, como tmb obtenr info d cualquier nodo. Tmb permite el ordenamiento y metodos de busquedas
 			
 	private INodo primero;
-	
-	
-	public Listas(Nodo primero) {
+	//agregaria el valor ulitmo para optimizar obtenerGenerico() y busquedaSecuencial()
+	private INodo ultimo;
+
+	///----CONSTRUCTORES---///
+	public Listas(INodo primero, INodo ultimo) {
 		super();
 		this.primero = primero;
+		this.ultimo = ultimo;
 	}
 
 	public Listas() {//cuando la lista está vacía
 		super();
 		this.primero = null;
+		this.ultimo = null;
 	}
 
 
-	///MÉTODOS------
+	///----METODOS----///
+	
+	@Override
 	public void agregarPrimero(int d) {
-		//lista --> |22| --> |3| --> |4|
 		//crear nodo
-		INodo nuevoPrimero = new Nodo(d);//dato: 44, siguiente: null, anterior: null.
+		INodo nuevoPrimero = new Nodo(d);
 		if (!estaVacia()) {
-			nuevoPrimero.setSiguiente(this.primero);//vincular al 44 con el 22
+			nuevoPrimero.setSiguiente(this.primero);
 			this.primero.setAnterior(nuevoPrimero);
-
 			this.primero = nuevoPrimero;
-			//Lista --> (44) --> |22| --> |3| --> |4|
+
 		}else {
 			this.primero = nuevoPrimero;
+			this.ultimo = nuevoPrimero;
 		}
 	}
 	
+	@Override
 	public void agregarUltimo(int d) {
-		//lista --> |22| --> |3| --> |4|
-		//crear nodo
-		INodo nuevoUltimo = new Nodo(d);//dato: 44, siguiente: null, anterior: null.
+		INodo nuevoUltimo = new Nodo(d);
 		if (!estaVacia()) {
-			INodo anteriorUltimo = this.primero;
-			while (anteriorUltimo.getSiguiente() != null) {
-				anteriorUltimo = anteriorUltimo.getSiguiente();
-			}
-			anteriorUltimo.setSiguiente(nuevoUltimo);//vincular al 44 con el 22
-			nuevoUltimo.setAnterior(anteriorUltimo);
-			
-			//this.primero = nuevoPrimero;
-			//Lista --> (44) --> |22| --> |3| --> |4|
+			nuevoUltimo.setAnterior(this.ultimo);
+			this.ultimo.setSiguiente(nuevoUltimo);
+			this.ultimo = nuevoUltimo;
 		}else {
 			agregarPrimero(d);
 		}
 	}
 	
+	@Override
+	public void agregarGenerico(int d, int pos) {
+		
+		//Lista --> A <-> B <-> C <-> null, queremos agregar a N entre A y B
+		if (!estaVacia()) {
+			
+			INodo nuevoNodo = new Nodo(d); //nodo creado
+			INodo actual = this.primero;// me paro en el primero
+			int posNodoActual = 0;
+			while (posNodoActual < pos - 1) {
+				actual = actual.getSiguiente();
+				posNodoActual++;
+			}
+			if (posNodoActual >= 0) {//si se ha salido exitosamente del bucle while
+				nuevoNodo.setSiguiente(actual.getSiguiente()); //supongamos que el actual es A, entonces N --> B
+				nuevoNodo.setAnterior(actual);// A <-- N
+				actual.setSiguiente(nuevoNodo); //A --> N
+				//la lista queda: A <-> N --> B <-> C, aún falta establecer que B apunte a N!
+				if (nuevoNodo.getSiguiente() != null) {//si el siguiente de nuevoNodo no es null, significa que hay otro nodo que le sigue
+					nuevoNodo.getSiguiente().setAnterior(nuevoNodo);
+					//ahora sí, la lista queda: A <-> N <--> B <-> C
+				}
+			}else {
+				System.out.println("No se pudo agregar el elemento a la posición indicada");//anda bien
+			}
+			
+			if (pos == cantElementos() - 1) {
+				agregarUltimo(d);
+			}
+				
+		}else {
+			agregarPrimero(d);
+			System.out.println("La lista esta vacia, se agrega a la primera posicion");
+			
+		}
+		
+	}
 	
+	@Override
+	public int eliminarPrimero() {
+		if (!estaVacia()) {
+			///Lista --> |11| --> |22| --> |33| --> null
+			int datoAEliminar = this.primero.getDato(); //--> 11
+			this.primero = primero.getSiguiente();// 22 es el nuevo primero
+			this.primero.setAnterior(null);
+			return datoAEliminar;
+		}else {
+			System.out.println("No puedo eliminar el primer elemento ya que no hay");
+			return -1;
+		}
+	}
+	
+	@Override
+	public int eliminarUltimo() {//mismo que eliminarPrimero, pero con el último valor
+		if (!estaVacia()) {
+			int nodoAEliminar = this.ultimo.getDato();
+			this.ultimo = ultimo.getAnterior();
+			this.ultimo.setSiguiente(null);
+	
+			return nodoAEliminar;
+		}else {
+			return -1;
+		}
+	}
+	
+	@Override
+	public void eliminarGenerico(int pos) {
+		if (estaVacia()) {
+			System.out.println("No se pudo eliminar, la lista está vacía");
+			return;
+		}
+		if (pos == 0) {
+			eliminarPrimero();
+		}
+		if (pos == cantElementos() - 1) {
+			eliminarUltimo();
+		}
+		
+		if (pos < 0 || pos >= cantElementos()) {
+			System.out.println("Posicion fuera de rango");
+			return;
+		}
+		
+		INodo nodoAEliminar = this.primero;
+		int cont = 0;
+		while (cont < pos) {
+			nodoAEliminar = nodoAEliminar.getSiguiente();
+			cont++;
+		}
+		//eliminando a nodoAEliminar:
+		INodo nodoSiguiente = nodoAEliminar.getSiguiente(); //siguiente del que se va a eliminar
+		INodo nodoAnterior = nodoAEliminar.getAnterior();//anterior del que se va a eliminar
+		
+		nodoSiguiente.setAnterior(nodoAnterior);
+		nodoAnterior.setSiguiente(nodoSiguiente);
+
+	}
+	
+
+	///---EXTRAS---///
+	
+	@Override
 	public void imprimirAdelante() {
         INodo actual = this.primero;
         System.out.print("Lista (adelante): ");
@@ -70,19 +163,10 @@ public class Listas implements IListas{
         System.out.println();
     }
 	
-	// Método para imprimir de fin a inicio (sin tener cola)
-    public void imprimirAtras() {
-        if (this.primero == null) return;
-
-        // Primero llegamos al último nodo
-        INodo actual = this.primero;
-        while (actual.getSiguiente() != null) {
-        	//System.out.println(actual);
-            actual = actual.getSiguiente();
-        }
-
-        // Ahora recorremos hacia atrás
-        System.out.print("Lista (atrás): ");
+	@Override
+	public void imprimirAtras() {
+		INodo actual = this.ultimo;
+        System.out.print("Lista (atras): ");
         while (actual != null) {
             System.out.print(actual.getDato() + " ");
             actual = actual.getAnterior();
@@ -90,6 +174,7 @@ public class Listas implements IListas{
         System.out.println();
     }
 	
+	@Override
 	public int cantElementos() {
 		if (estaVacia()) {
 			return 0;
@@ -105,22 +190,23 @@ public class Listas implements IListas{
 		
 	}
 	
-	public int eliminarPrimero() {
-		if (!estaVacia()) {
-			///Lista --> |11| --> |22| --> |33| --> null
-			int datoAEliminar = this.primero.getDato(); //--> 11
-			this.primero = primero.getSiguiente();// 22 es el nuevo primero
-			this.primero.setAnterior(null);
-			return datoAEliminar;
-		}else {
-			System.out.println("No puedo eliminar el primer elemento ya que no hay");
-			return -1;
-		}
+	@Override
+	public boolean estaVacia() {
+		/*boolean respuesta = (primero == null);//operacion lógica
+		return respuesta;*/
+		return primero == null;
 	}
+	
 	
 	///-----MODIFICAR LOS SIGUIENTES METODOS----///
 	
 	public int obtenerGenerico(int pos) {//MODIFICAR PARA LISTA DOBLE
+		/*
+		 * CREO QUE ESTA FUNCIÓN PUEDE ADAPTARSE A LISTA DOBLE SI SE AGREGA UNA VARIABLE ultimo,
+		 * puesto que se puede recorrer desde (.length -1) y desde el inicio de la lista simultaneamente, encontrando mas rapido el nodo.
+		 * si no se agrega la variable el mecanismo de busqueda es igual tanto para lista simple y doble, por lo que no habria que adaptar nada
+		 * */
+		
 		//pos = 2
 		//Lista --> |11| --> |22| --> |33| --> null
 		//return 33
@@ -140,6 +226,8 @@ public class Listas implements IListas{
 	}
 	
 	public int busquedaSecuencial(int d) {//MODIFICAR PARA LISTA DOBLE
+		//mismo comentario que con obtenerGenerico()
+		 
 		///Lista --> |11| --> |22| --> |33| --> |44| --> null; buscamos el 44, el return debe ser un 3, la pos.
 		if (!estaVacia()) {
 			INodo actual = this.primero;
@@ -161,61 +249,6 @@ public class Listas implements IListas{
 		}
 		
 	}
-	
-	
-	@Override
-	public void agregarGenerico(int d, int pos) {//MODIFICAR PARA LISTA DOBLE
-		//Lista --> |33| --> |22| --> |11| --> null (44, pos1)
-		if (!estaVacia()) {
-			INodo nuevoNodo = new Nodo(d); //nodo creado
-			INodo actual = this.primero;// me paro en el primero
-			int posNodoActual = 0;
-			while (posNodoActual < pos - 1 && pos < cantElementos()) {
-				actual = actual.getSiguiente();
-				posNodoActual++;
-			}
-			if (posNodoActual >= 0 && pos < cantElementos()) {
-				nuevoNodo.setSiguiente(actual.getSiguiente());//44;sig -> siguiente del 33, o sea, 22
-				actual.setSiguiente(nuevoNodo);//33, siguiente -> 44
-			}else {
-				System.out.println("No se pudo agregar el elemento a la posición indicada");//anda bien
-			}
-				
-		}else {
-			agregarPrimero(d);
-			System.out.println("La lista esta vacia, se agrega a la primera posicion");
-			
-		}
-		
-	}
-
-	@Override
-	public void eliminar(int pos) {//MODIFICAR PARA LISTA DOBLE
-		// TODO Auto-generated method stub
-		if (!estaVacia()) {
-			int contador = 0;
-			INodo actual = this.primero;
-			
-			while (actual.getSiguiente() != null && contador < cantElementos()) {
-				actual = actual.getSiguiente();
-				contador++;
-			}
-			if (actual.getSiguiente() == null) {
-				System.out.println("Posicion fuera de rango");
-				
-			}
-			actual.setSiguiente(actual.getSiguiente().getSiguiente());
-			
-		}else {
-			System.out.println("No se pudo eliminar, la lista está vacía");
-		}
-	}
-
-	@Override
-	public int eliminarUltimo() {//MODIFICAR PARA LISTA DOBLE
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public int obtenerPrimero() {//MODIFICAR PARA LISTA DOBLE
@@ -228,22 +261,8 @@ public class Listas implements IListas{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	@Override
-	public void mostrarLista() {
-		INodo actual = this.primero;
-		int elem = 0;
-		if (estaVacia()) return;
-		
-		while (actual.getSiguiente() != null && elem < cantElementos() + 1) {
-			System.out.println("Elemento " + (elem + 1) + " " +  actual.getDato());
-			actual = actual.getSiguiente();
-			elem++;
-		}
-		
-	}
 	
-	///GETTER & SETTER----
+	///----GETTER & SETTER----///
 	public INodo getPrimero() {
 		return primero;
 	}
@@ -252,14 +271,7 @@ public class Listas implements IListas{
 	public void setPrimero(INodo primero) {
 		this.primero = primero;
 	}
+	
+	
 
-	
-	
-	public boolean estaVacia() {
-		/*boolean respuesta = (primero == null);//operacion lógica
-		return respuesta;*/
-		return primero == null;
-	}
-
-	
 }

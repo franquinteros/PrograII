@@ -1,0 +1,40 @@
+package test;
+import interfaces.IAnemometro;
+import interfaces.IPluviometro;
+import interfaces.ISensor;
+import interfaces.ITermometro;
+import modelo.Anemometro;
+import modelo.Pluviometro;
+import modelo.Sensor;
+import modelo.Termometro;
+
+public class TestInicial {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ISensor[] sensores = new ISensor[5];
+		
+		ITermometro termometro1 = new Termometro("876456", "Argentina");
+		System.out.println("Termometro 1 (antes de array): " + termometro1.getIdentificador() + ", " + termometro1.getUbicacion());
+		ITermometro termometro2 = new Termometro("987600", "Brazil");
+		System.out.println("Termometro 2 (antes de array): " + termometro2.getIdentificador() + ", " + termometro2.getUbicacion());
+		IAnemometro anemometro1 = new Anemometro("098578", "Chile");
+		System.out.println("Anemometro 1 (antes de array): " + anemometro1.getIdentificador() + ", " + anemometro1.getUbicacion());
+		//IPluviometro pluviometro1 = new Pluviometro("15432", "Brazil");
+		//IPluviometro pluviometro2 = new Pluviometro("765437", "Uruguay");
+		
+		////---METODOS PROPIOS CLASES-----////
+		System.out.println();
+		System.out.println("Mostrando los datos del termometro: " + termometro1.mostrarDatos());//retornan null los atributos, cuando antes se veían bien.
+		
+
+		
+		sensores[2] = anemometro1;
+		System.out.println();
+		System.out.println("Contenido del arreglo de sensores: ");
+		for (ISensor sensor : sensores) {
+		    System.out.println(sensor.mostrarDatos() + " -- " + sensor.leer(22.5));
+		}
+	}
+
+}
