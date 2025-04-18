@@ -189,7 +189,7 @@ public class Listas implements IListas{
 		}
 		
 	}
-	
+
 	@Override
 	public boolean estaVacia() {
 		/*boolean respuesta = (primero == null);//operacion lógica
@@ -199,7 +199,7 @@ public class Listas implements IListas{
 	
 	
 	///-----MODIFICAR LOS SIGUIENTES METODOS----///
-	
+
 	public int obtenerGenerico(int pos) {//MODIFICAR PARA LISTA DOBLE
 		/*
 		 * CREO QUE ESTA FUNCIÓN PUEDE ADAPTARSE A LISTA DOBLE SI SE AGREGA UNA VARIABLE ultimo,
@@ -224,7 +224,7 @@ public class Listas implements IListas{
 		}
 		
 	}
-	
+
 	public int busquedaSecuencial(int d) {//MODIFICAR PARA LISTA DOBLE
 		//mismo comentario que con obtenerGenerico()
 		 
