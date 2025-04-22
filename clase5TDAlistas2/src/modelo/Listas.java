@@ -253,13 +253,30 @@ public class Listas implements IListas{
 	@Override
 	public int obtenerPrimero() {//MODIFICAR PARA LISTA DOBLE
 		// TODO Auto-generated method stub
-		return 0;
+		if (!estaVacia()) {
+			INodo actual = this.primero;
+			return actual.getDato();
+			
+		}else {
+			//devuelve -1 como valor random poruqe esta vacia asi q no podes obtener ningun valor pero deberia de printear ERROR.
+			return -1;
+			
+		}
 	}
+	
 
 	@Override
 	public int obtenerUltimo() {//MODIFICAR PARA LISTA DOBLE
 		// TODO Auto-generated method stub
-		return 0;
+		if (!estaVacia()) {
+			INodo actual = this.ultimo;
+			return actual.getDato();
+			
+		}else {
+			//devuelve -1 como valor random poruqe esta vacia asi q no podes obtener ningun valor pero deberia de printear ERROR.
+			return -1;
+			
+		}
 	}
 	
 	///----GETTER & SETTER----///
