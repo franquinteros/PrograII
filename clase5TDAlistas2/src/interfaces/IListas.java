@@ -21,8 +21,8 @@ public interface IListas {
 	public int eliminarPrimero();
 	
 	///obtenerElemento
-	public int obtenerPrimero();//sin pos ya q se sabe la pos del elemento a obtener
-	public int obtenerUltimo();
+	public int obtenerPrimero();//LISTO
+	public int obtenerUltimo();//LISTO
 	public int obtenerGenerico(int pos);
 	
 	///--------EXTRAS----------///
